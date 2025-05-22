@@ -1,6 +1,7 @@
-from django.urls import path
-from . import views
+from django.contrib import admin
+from django.urls import path, include
 
 urlpatterns = [
-    path('', views.lista_publicaciones, name='lista_publicaciones'),
+    path('admin/', admin.site.urls),
+    path('', include('blog.urls')),  # Esta línea es CLAVE
 ]
