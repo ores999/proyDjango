@@ -1,21 +1,62 @@
 {% load static %}
 <html>
 <head>
-    <title>Blog de ores</title>
+    <title>Blog de Ores</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
+        .filtro-usuarios {
+            margin: 15px 0;
+            padding: 10px;
+            background: #f0f0f0;
         }
-        img {
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
-            display: block;
+        .usuario-filtro {
+            display: inline-block;
+            margin-right: 10px;
+            padding: 5px 10px;
+            background: #e0e0e0;
+            border-radius: 3px;
+        }
+        .usuario-filtro.activo {
+            background: #4CAF50;
+            color: white;
+        }
+        .limpiar-filtro {
+            display: inline-block;
+            margin-left: 10px;
+            color: #666;
         }
     </style>
 </head>
 <body>
-    <img src="{% static 'blog/fotoPaco.jpeg' %}" alt="Foto de perfume">
+    <div style="background: red;">
+        <h1><a href="/">Blog de Ores</a></h1>
+    </div>
+    <!-- Filtro por usuario usando enlaces -->
+    <div class="filtro-usuarios">
+    <strong>Filtrar por autor:</strong>
+   
+    <!-- Opción "Todos" -->
+    <a href="?" class="usuario-filtro {% if not usuario_activo %}activo{% endif %}">
+        Todos
+    </a>
+   
+    <!-- Opciones por usuario -->
+    {% for usuario in usuarios %}
+        <a href="?usuario={{ usuario.id }}"
+           class="usuario-filtro {% if usuario_activo == usuario.id %}activo{% endif %}">
+            {{ usuario.username }}
+        </a>
+    {% endfor %}
+   </div>
+
+   <!-- Lista de publicaciones -->
+
+   <div>
+    {% for publicacion in publicaciones %}
+    <p>Publicado: {{ publicacion.fecha_publicacion }} por autor/a: {{ publicacion.autor.username }} </p>
+    <h2> <a href=""> {{publicacion.titulo}} </a> </h2>
+    <p> {{ publicacion.texto|linebreaksbr }} </p>
+    <hr>    
+    {% endfor %}
+   </div>
 </body>
 </html>
