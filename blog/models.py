@@ -15,3 +15,5 @@ class Publicacion(models.Model):
 
     def __str__(self):
         return self.titulo
+    
+fecha_publicacion = models.DateTimeField(blank=True, null=True)
