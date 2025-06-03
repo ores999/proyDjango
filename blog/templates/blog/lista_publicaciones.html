@@ -1,33 +1,14 @@
 {% load static %}
 <html>
 <head>
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     <title>Blog de Ores</title>
-    <style>
-        .filtro-usuarios {
-            margin: 15px 0;
-            padding: 10px;
-            background: #f0f0f0;
-        }
-        .usuario-filtro {
-            display: inline-block;
-            margin-right: 10px;
-            padding: 5px 10px;
-            background: #e0e0e0;
-            border-radius: 3px;
-        }
-        .usuario-filtro.activo {
-            background: #4CAF50;
-            color: white;
-        }
-        .limpiar-filtro {
-            display: inline-block;
-            margin-left: 10px;
-            color: #666;
-        }
-    </style>
 </head>
 <body>
-    <div style="background: red;">
+    <div class="page-header" style="background: red;">
         <h1><a href="/">Blog de Ores</a></h1>
     </div>
     <!-- Filtro por usuario usando enlaces -->
@@ -50,7 +31,7 @@
 
    <!-- Lista de publicaciones -->
 
-   <div>
+   <div class="post">
     {% for publicacion in publicaciones %}
     <p>Publicado: {{ publicacion.fecha_publicacion }} por autor/a: {{ publicacion.autor.username }} </p>
     <h2> <a href=""> {{publicacion.titulo}} </a> </h2>
@@ -58,5 +39,22 @@
     <hr>    
     {% endfor %}
    </div>
+
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                {% for publicacion in publicaciones %}
+                    <div class="post">
+                            <div class="date">
+                            <p> publicado: {{ publicacion.fecha_publicacion }}</p>
+                            </div>
+                        <h2><a href="">{{ publicacion.titulo }}</a></h2>
+                        <p>{{ publicacion.texto|linebreaksbr }}</p>
+                        <hr>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </body>
 </html>

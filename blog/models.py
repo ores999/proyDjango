@@ -8,6 +8,7 @@ class Publicacion(models.Model):
     texto = models.TextField()
     fecha_creacion = models.DateTimeField(default=timezone.now)
     hora_creacion = models.DateTimeField(blank=True, null=True)
+    fecha_publicacion = models.DateTimeField(blank=True, null=True)
 
     def publicar(self):
         self.fecha_publicacion = timezone.now()
@@ -16,4 +17,3 @@ class Publicacion(models.Model):
     def __str__(self):
         return self.titulo
     
-fecha_publicacion = models.DateTimeField(blank=True, null=True)
