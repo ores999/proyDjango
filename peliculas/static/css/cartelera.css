@@ -1,0 +1,82 @@
+/* ——  Paleta ————————————————————— */
+:root{
+    --fondo: #1b2838;
+    --tarjeta:#111924;
+    --texto: #f1f1f1;
+    --gris : #c7c7c7;
+    --amarillo:#ffd65c;
+}
+
+/* ——  Google Font para estilo cine ——— */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+/* ——  Reset / base ———————————— */
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+    background:var(--fondo);
+    color:var(--texto);
+    font-family:'Inter', Arial, sans-serif;
+    padding:3.5rem 0 2rem;
+    text-rendering:optimizeLegibility;
+}
+
+/* ——  Título principal ———————— */
+.header{
+    text-align:center;
+    margin-bottom:2.5rem;
+}
+.header h1{
+    font-family:'Cinzel Decorative', serif;
+    font-size:2.6rem;
+    letter-spacing:2px;
+    color:var(--amarillo);
+    text-shadow:0 0 12px rgba(0,0,0,.65);
+}
+
+/* ——  Contenedor cartelera ———— */
+.cartelera{
+    width:min(900px,92%);
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    gap:1.75rem;
+}
+
+/* ——  Tarjeta ———————————— */
+.movie-card{
+    display:flex;
+    background:var(--tarjeta);
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 6px 18px rgba(0,0,0,.45);
+    transition:transform .15s ease;
+}
+.movie-card:hover{transform:translateY(-4px)}
+
+/* póster */
+.movie-card img{
+    width:180px;
+    height:100%;
+    object-fit:cover;
+}
+
+/* contenido */
+.movie-info{
+    flex:1;
+    padding:1.6rem 2rem;
+}
+.movie-info h2{margin-bottom:.35rem;font-weight:600}
+.meta{font-size:.9rem;color:var(--gris);margin-bottom:.9rem}
+.meta span{margin-right:.6rem}
+.badge{background:var(--amarillo);color:#1c1c1c;font-weight:700;
+       padding:.15rem .45rem;border-radius:4px;font-size:.75rem}
+.movie-info p{line-height:1.55;color:#e0e0e0}
+
+/* ——  Responsive —— */
+@media(max-width:680px){
+    .movie-card{flex-direction:column}
+    .movie-card img{width:100%;max-height:310px}
+    .movie-info{padding:1.4rem 1.2rem}
+    .header h1{font-size:2.2rem}
+}

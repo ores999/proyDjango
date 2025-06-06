@@ -1,0 +1,43 @@
+{# peliculas/templates/peliculas/lista_peliculas.html #}
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Pelis Ores</title>
+  <link rel="stylesheet" href="{% static 'css/cartelera.css' %}">
+</head>
+<body>
+<header class="header"><h1>Pelis Ores</h1></header>
+
+<div class="cartelera">
+{% for peli in peliculas %}
+  <article class="movie-card">
+      {# ——— POSTER ——— #}
+        {% if peli.poster %}
+            <!-- evita doble “//” -->
+            <img src="{% static 'img' %}/{{ peli.poster }}" alt="{{ peli.titulo }}">
+        {% else %}
+            <img src="{% static 'img/poster_placeholder.jpg' %}" alt="Poster genérico">
+        {% endif %}
+
+      {# ——— INFO ——— #}
+      <div class="movie-info">
+          <h2>{{ peli.titulo }}</h2>
+
+          <div class="meta">
+              <span> {{ peli.fecha_estreno|date:"Y" }}</span> |
+              <span class="badge">IMDb</span>
+              <span>{{ peli.rating_imdb|default:"-" }}</span> |
+              <span> {{ peli.rating_personal|default:"-" }}/5</span>
+          </div>
+
+          <p>{{ peli.sinopsis }}</p>
+      </div>
+  </article>
+{% empty %}
+  <p style="text-align:center">No hay películas cargadas todavía.</p>
+{% endfor %}
+</div>
+</body>
+</html>
