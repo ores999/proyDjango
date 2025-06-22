@@ -1,53 +1,64 @@
 {% load static %}
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <meta charset="utf-8">
+
+    {# ——— Fuentes + Bootstrap que sirves desde CDN ——— #}
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext"
+          rel="stylesheet" type="text/css">
+    <link rel="stylesheet"
+          href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    {# ——— Tu hoja de estilos local ——— #}
+    <!-- 🔄  carpeta blog/static/blog/css/blog.css -->
+    <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+
     <title>Blog de Ores</title>
 </head>
 <body>
-    <div class="page-header" style="background: red;">
+
+    <div class="page-header" style="background:red">
         <h1><a href="/">Blog de Ores</a></h1>
     </div>
-    <!-- Filtro por usuario usando enlaces -->
+
+    <!-- ——— Filtro de usuarios ——— -->
     <div class="filtro-usuarios">
-    <strong>Filtrar por autor:</strong>
-   
-    <!-- Opción "Todos" -->
-    <a href="?" class="usuario-filtro {% if not usuario_activo %}activo{% endif %}">
-        Todos
-    </a>
-   
-    <!-- Opciones por usuario -->
-    {% for usuario in usuarios %}
-        <a href="?usuario={{ usuario.id }}"
-           class="usuario-filtro {% if usuario_activo == usuario.id %}activo{% endif %}">
-            {{ usuario.username }}
-        </a>
-    {% endfor %}
-   </div>
+        <strong>Filtrar por autor:</strong>
 
-   <!-- Lista de publicaciones -->
+        <a href="?"
+           class="usuario-filtro {% if not usuario_activo %}activo{% endif %}">Todos</a>
 
-   <div class="post">
-    {% for publicacion in publicaciones %}
-    <p>Publicado: {{ publicacion.fecha_publicacion }} por autor/a: {{ publicacion.autor.username }} </p>
-    <h2> <a href=""> {{publicacion.titulo}} </a> </h2>
-    <p> {{ publicacion.texto|linebreaksbr }} </p>
-    <hr>    
-    {% endfor %}
-   </div>
+        {% for usuario in usuarios %}
+            <a href="?usuario={{ usuario.id }}"
+               class="usuario-filtro {% if usuario_activo == usuario.id %}activo{% endif %}">
+               {{ usuario.username }}
+            </a>
+        {% endfor %}
+    </div>
 
+    <!-- ——— Lista de publicaciones (versión compacta) ——— -->
+    <div class="post">
+        {% for publicacion in publicaciones %}
+            <p>Publicado: {{ publicacion.fecha_publicacion }}
+               por {{ publicacion.autor.username }}</p>
+            <h2><a href="">{{ publicacion.titulo }}</a></h2>
+            <p>{{ publicacion.texto|linebreaksbr }}</p>
+            <hr>
+        {% endfor %}
+    </div>
+
+    <!-- ——— Lista de publicaciones con Bootstrap ——— -->
     <div class="content container">
         <div class="row">
             <div class="col-md-8">
                 {% for publicacion in publicaciones %}
                     <div class="post">
-                            <div class="date">
-                            <p> publicado: {{ publicacion.fecha_publicacion }}</p>
-                            </div>
+                        <div class="date">
+                            <p>publicado: {{ publicacion.fecha_publicacion }}</p>
+                        </div>
                         <h2><a href="">{{ publicacion.titulo }}</a></h2>
                         <p>{{ publicacion.texto|linebreaksbr }}</p>
                         <hr>
@@ -56,5 +67,6 @@
             </div>
         </div>
     </div>
+
 </body>
 </html>
