@@ -1,0 +1,101 @@
+/* ── Tipografía ─────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap');
+
+/* ── Reset básico ───────────────────────────────────────────── */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ── Estructura general ─────────────────────────────────────── */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    color: #fff;
+    line-height: 1.7;
+
+    /* fallback de color + imagen de fondo */
+    background: #111 url('imagenes/kanye-bg.jpg') center / cover fixed no-repeat;
+}
+
+/* ── Encabezado ─────────────────────────────────────────────── */
+header {
+    background: rgba(0, 0, 0, 0.75);
+    padding: 22px 12px;
+    text-align: center;
+    border-bottom: 3px solid #c28800;
+}
+
+h1 {
+    font-size: 3.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* ── Navegación ─────────────────────────────────────────────── */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 14px;
+}
+
+nav a {
+    color: #c28800;
+    text-decoration: none;
+    margin: 0 16px;
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: #fff;
+}
+
+/* ── Contenido principal ────────────────────────────────────── */
+main {
+    max-width: 960px;
+    margin: 48px auto;
+    background: rgba(0, 0, 0, 0.65);
+    padding: 45px 40px;
+    border-radius: 10px;
+}
+
+section {
+    margin-bottom: 70px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 6px;
+    color: #c28800;
+}
+
+/* ── Tarjeta de álbum ───────────────────────────────────────── */
+.album img {
+    width: 42%;
+    display: block;
+    margin: 22px auto;
+    border-radius: 6px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
+}
+
+.album p {
+    margin-bottom: 14px;
+    text-align: justify;
+}
+
+.lyric {
+    font-style: italic;
+    text-align: center;
+    margin-top: 8px;
+    opacity: 0.9;
+}
+
+/* ── Pie de página ──────────────────────────────────────────── */
+footer {
+    background: rgba(0, 0, 0, 0.85);
+    text-align: center;
+    padding: 18px 10px;
+    font-size: 0.9rem;
+}

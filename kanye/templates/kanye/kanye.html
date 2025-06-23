@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Kanye West – Historia, Persona y Discografía</title>
+
+    {# hoja de estilo propia #}
+    <link rel="stylesheet" href="{% static 'kanye/css/kanye.css' %}">
+</head>
+
+<body>
+
+<header>
+    <h1>Kanye West</h1>
+
+    <nav>
+        <ul>
+            <li><a href="https://www.kanyewest.com"            target="_blank">Sitio oficial</a></li>
+            <li><a href="https://www.billboard.com/artist/kanye-west/" target="_blank">Actualidad</a></li>
+            <li><a href="https://www.songkick.com/artists/176219-kanye-west" target="_blank">Presentaciones</a></li>
+            <li><a href="https://www.youtube.com/results?search_query=kanye+west+interview" target="_blank">Entrevistas</a></li>
+            <li><a href="https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x" target="_blank">Spotify</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+<!-- ================== DISCOGRAFÍA ================== -->
+<section id="discografia">
+    <h2>Discografía</h2>
+
+    <!-- COLLEGE DROPOUT -->
+    <article class="album" id="college">
+        <h3>The College Dropout (2004)</h3>
+        <img src="{% static 'kanye/imagenes/kanyeCoDr.jpg' %}"
+             alt="Portada The College Dropout">
+
+        <p>El debut que cambió la conversación del hip-hop: West abandonó la narrativa gangsta 
+            que dominaba la radio y la sustituyó por confesiones sobre educación, racismo y espiritualidad. 
+            Grabado entre Chicago y Los Ángeles tras años produciendo para Jay-Z, Talib Kweli o Ludacris, 
+            el disco combina soul sampleado (Curtis Mayfield, Chaka Khan) con coros góspel, 
+            skits universitarios y colaboraciones de Jamie Foxx y JAY-Z. Vendió 441 000 copias en su 
+            primera semana, fue doble platino en tiempo récord y ganó el Grammy a Mejor Álbum Rap.</p>
+        <p class="lyric">“We wasn’t supposed to make it past 25…” – <strong>We Don’t Care</strong></p>
+    </article>
+
+    <!-- LATE REGISTRATION -->
+    <article class="album" id="late">
+        <h3>Late Registration (2005)</h3>
+        <img src="{% static 'kanye/imagenes/kanyeLR.jpg' %}" alt="Portada Late Registration">
+        <p>Coproducido con el compositor Jon Brion, añadió orquestaciones
+       lujosas a la firma soul. Vendió 860 000 copias en su primera
+       semana y ganó tres premios Grammy, consolidando al “viejo Kanye”
+       como maestro del sampling</p>
+        <p>Críticos como <em>Rolling Stone</em> lo tildaron de “sobreproducido y glorioso”, mientras que fans señalaron el disco como la cima del “viejo Kanye”.</p>
+        <p class="lyric">“She take my money when I’m in need …” – <strong>Gold Digger</strong></p>
+    </article>
+
+    <!-- GRADUATION -->
+    <article class="album" id="graduation">
+        <h3>Graduation (2007)</h3>
+        <img src="{% static 'kanye/imagenes/kanyeG.jpg' %}" alt="Portada Graduation">
+
+        <p>Inspirado por Daft Punk y la floreciente escena electro‑house, West perfeccionó el
+           “stadium rap” con himnos sintetizados. El duelo de ventas frente a <em>Curtis</em> de 50 Cent
+           simbolizó el relevo generacional del mainstream: 957 000 unidades en su primera
+           semana. Visualmente, el arte animé de Takashi Murakami convirtió a Dropout Bear en
+           ícono pop.</p>
+        <p class="lyric">“Work it, make it, do it, makes us harder, better, faster, stronger.”</p>
+    </article>
+
+    <!-- 808s & HEARTBREAK -->
+    <article class="album" id="heartbreak">
+        <h3>808s &amp; Heartbreak (2008)</h3>
+        <img src="{% static 'kanye/imagenes/kanye808.jpg' %}" alt="Portada 808s &amp; Heartbreak">
+
+        <p>Tras la muerte de su madre y la ruptura con su prometida, West abrazó la melancolía:
+           voz con Auto‑Tune, percusiones TR‑808 y minimalismo helado grabado en Honolulu.
+           Incomprendido al principio, el disco se convirtió en la piedra angular del rap
+           melódico que influiría a Drake, The Weeknd o Travis Scott.</p>
+        <p class="lyric">“And I heard ’em say, nothin’s ever promised tomorrow today …” – <strong>Say You Will</strong></p>
+    </article>
+
+    <!-- MY BEAUTIFUL DARK TWISTED FANTASY -->
+    <article class="album" id="mbdtf">
+        <h3>My Beautiful Dark Twisted Fantasy (2010)</h3>
+        <img src="{% static 'kanye/imagenes/kanyeMBDTF.jpg' %}" alt="Portada MBDTF">
+
+        <p>Exiliado en Hawái tras el incidente con Taylor Swift, West reunió a decenas de
+           colaboradores (Bon Iver, Nicki Minaj, Rick Ross) para crear un opus maximalista:
+           suites orquestales, soul y prog‑rock en 70 minutos que Metacritic puntuó 94/100.
+           Figura constante en las listas de “mejores álbumes del siglo”.</p>
+        <p class="lyric">“Can we get much higher? So high …”</p>
+    </article>
+
+    <!-- YEEZUS -->
+    <article class="album" id="yeezus">
+        <h3>Yeezus (2013)</h3>
+        <img src="{% static 'kanye/imagenes/kanyeYzs.jpg' %}" alt="Portada Yeezus">
+
+        <p>Producido con Daft Punk, Arca y Hudson Mohawke, abraza el ruido industrial, samples
+           dancehall y letras abrasivas sobre raza, religión y consumismo. Sin portada, solo un
+           CD rojo translúcido. Polarizó al público, pero sembró el terreno para el
+           “punk‑rap”.</p>
+        <p class="lyric">“I am a god — hurry up with my damn croissants!”</p>
+    </article>
+
+    <!-- THE LIFE OF PABLO -->
+    <article class="album" id="tlop">
+        <h3>The Life of Pablo (2016)</h3>
+        <img src="{% static 'kanye/imagenes/kanyeTLOP.jpg' %}" alt="Portada The Life of Pablo">
+
+        <p>Autodenominado “álbum vivo”: publicado en Tidal y actualizado durante semanas.
+           Mezcla góspel (<em>Ultralight Beam</em>), trap y soul sampleado. Primer N.º 1 de
+           Billboard basado casi en su totalidad en streaming y piedra angular del
+           lanzamiento iterativo.</p>
+        <p class="lyric">“This is a God dream, this is everything …” – <strong>Ultralight Beam</strong></p>
+    </article>
+
+    <!-- YE -->
+    <article class="album" id="ye">
+        <h3>Ye (2018)</h3>
+        <img src="{% static 'kanye/imagenes/kanyeYe.jpg' %}" alt="Portada Ye">
+
+        <p>Siete canciones grabadas en Wyoming en apenas dos semanas. Aborda salud mental,
+           paternidad y cultura de la cancelación. Minimalista y confesional,
+           debutó #1 en 14 países.</p>
+        <p class="lyric">“I thought about killing you … I love myself way more than I love you.”</p>
+    </article>
+
+    <!-- JESUS IS KING -->
+    <article class="album" id="jik">
+        <h3>Jesus Is King (2019)</h3>
+        <img src="{% static 'kanye/imagenes/kanyeJIK.png' %}" alt="Portada Jesus Is King">
+
+        <p>Conversión religiosa hecha disco: góspel‑rap sin blasfemias,
+           con la Sunday Service Choir y Kenny G. Debutó #1 simultáneamente en Billboard 200,
+           Christian y Gospel — primera vez en la historia.</p>
+        <p class="lyric">“Closed on Sunday, you’re my Chick‑fil‑A …”</p>
+    </article>
+
+    <!-- DONDA -->
+    <article class="album" id="donda">
+        <h3>Donda (2021)</h3>
+        <img src="{% static 'kanye/imagenes/kanyeD.jpg' %}" alt="Portada Donda">
+
+        <p>Elegía de 27 pistas (2 h) dedicada a su madre. Tres listening‑parties en estadios
+           transmitidas por Apple Music. Segundo mayor debut global de Spotify; fusiona drill,
+           góspel y electrónica con invitados que van de Jay‑Z a Marilyn Manson.</p>
+        <p class="lyric">“Praise God from whom all blessings flow …” – <strong>Praise God</strong></p>
+    </article>
+
+</section>
+
+<!-- ================== BIO & CONTROVERSIAS ================== -->
+<section id="biografia">
+  <h2>Kanye West: el hombre detrás de la música</h2>
+  <img src="{% static 'kanye/imagenes/kanye1.jpg' %}" alt="Kanye West">
+  <p><strong>Primeros años.</strong> Kanye Omari West nació el 8 de junio de 1977 en Atlanta y se crió en Chicago con su madre, la profesora de inglés Dr. Donda West. A los 13 años ya producía beats en una MPC 2000 y abandonó la Universidad Estatal de Chicago para perseguir la música, inspiración del leitmotiv “dropout” de sus tres primeros discos.</p>
+
+  <p><strong>Productor y ascenso.</strong> Como productor de Roc-A-Fella Records, redefinió el rap mainstream vía “chipmunk soul” en <em>The Blueprint</em> de Jay-Z (2001). El éxito le dio vía libre para su debut, pero la industria dudaba de su faceta como rapero debido a su imagen “nerdy” y sin antecedentes callejeros. Su accidente automovilístico de 2002 —fractura de mandíbula incluida— catalizó el single “Through the Wire” grabado con la boca suturada.</p>
+
+  <p><strong>Moda y negocios.</strong> Fundó Yeezy en colaboración con adidas (2015-2022), logrando uno de los lanzamientos de calzado más lucrativos de la historia; Forbes estimó su patrimonio en USD 2 000 M en 2021. Tras romper con adidas en 2022, West experimentó alianzas con Gap y la plataforma Stem Player, donde lanzó <em>Donda 2</em> (2022). </p>
+
+  <p><strong>Política y fe.</strong> Apoyó a Donald Trump (2016-20) luciendo la gorra “MAGA”. Se postuló como independiente en las elecciones presidenciales 2020 recibiendo 70 000 votos. Desde 2019 lidera los Sunday Service, misas góspel itinerantes que combinan prédicas y covers soul.</p>
+
+  <p><strong>Controversias.</strong> Su interrupción a Taylor Swift en los VMAs 2009, declaraciones sobre esclavitud como “una elección” (2018), y comentarios antisemitas (2022-25) han provocado boicots, ruptura de contratos y uso limitado de redes sociales. Sigue siendo una figura polarizadora que domina titulares por igual que listas musicales.</p>
+
+  <p><strong>Legado.</strong> Seis de sus discos figuran en la lista 2020 de <em>Rolling Stone</em> de los 500 mejores álbumes; fue nombrado uno de los 100 mejores compositores de todos los tiempos. De Drake a Travis Scott, su influencia sónica y estética es evidente en la música, la moda callejera y la estrategia de lanzamientos digitales.</p>
+</section>
+</section>
+
+<p class="frase-final">
+    <em>“I feel like I'm too busy writing history to read it.”</em>
+</p>
+
+</main>
+
+</body>
+</html>
