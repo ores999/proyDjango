@@ -1,4 +1,4 @@
-#!/Users/oresteberta/proyDjango/miEntV/bin/python3.10
+#!/Users/oresteberta/proyDjango/miEntV/bin/python3.11
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 
