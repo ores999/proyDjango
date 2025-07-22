@@ -1,45 +1,62 @@
-{% load static %}
+{% load static rating_filters rating_extras%}
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="utf-8">
-    <title>Pelis Ores</title>
+  <meta charset="utf-8">
+  <title>Pelis Ores</title>
 
-    {# ✔  Ruta completa dentro de /static #}
-    <link rel="stylesheet" href="{% static 'pelis/css/cartelera.css' %}">
+  <!-- hoja de estilo -->
+  <link rel="stylesheet" href="{% static 'pelis/css/cartelera.css' %}">
 </head>
-
 <body>
-<header class="header"><h1>Pelis Ores</h1></header>
 
-<div class="cartelera">
-{% for peli in peliculas %}
-    <article class="movie-card">
+<header class="header">
+  <!-- Título / marquesina -->
+  <h1 class="marquee">Pelis Ores</h1>
 
-        {# ——— POSTER ——— #}
+  <!-- Sprites patrullando -->
+  <div class="sprites">
+    <img src="{% static 'pelis/img/spr_batman.png'   %}" class="sprite batman" alt="">
+    <img src="{% static 'pelis/img/spr_joker.png'    %}" class="sprite joker"  alt="">
+    <img src="{% static 'pelis/img/spr_catwoman.png' %}" class="sprite cat"    alt="">
+  </div>
+</header>
+
+<main class="cartelera">
+  {% for peli in peliculas %}
+      <article class="movie-card">
+
+        <!-- póster -->
         {% if peli.poster %}
-            <img src="{{ peli.poster.url }}" alt="{{ peli.titulo }}">
+          <img src="{{ peli.poster.url }}" alt="{{ peli.titulo }}">
         {% else %}
-            <img src="{% static 'pelis/img/poster_placeholder.jpg' %}" alt="Póster genérico">
+          <img src="{% static 'pelis/img/poster_placeholder.jpg' %}" alt="Póster genérico">
         {% endif %}
 
-        {# ——— INFO ——— #}
+        <!-- info -->
         <div class="movie-info">
-            <h2>{{ peli.titulo }}</h2>
+          <h2>{{ peli.titulo }}</h2>
 
-            <div class="meta">
-                <span>{{ peli.fecha_estreno|date:"Y" }}</span> |
-                <span class="badge">IMDb</span>
-                <span>{{ peli.rating_imdb|default:"-" }}</span> |
-                <span> {{ peli.rating_personal|default:"-" }}/5</span>
-            </div>
+          <div class="meta">
+            <span>{{ peli.fecha_estreno|date:"Y" }}</span> |
+            <span class="badge">IMDb</span>
+            <span class="{{ peli.rating_imdb|default:0|floatformat:1|rating_class }}">
+                  {{ peli.rating_imdb|default:"–" }}
+            </span> |
+            <span class="stars">
+              {% with peli.rating_personal|default_if_none:0 as rp %}
+                 {% for _ in ""|center:rp %}★{% endfor %}
+              {% endwith %}
+            </span>
+          </div>
 
-            <p>{{ peli.sinopsis }}</p>
+          <p>{{ peli.sinopsis }}</p>
         </div>
-    </article>
-{% empty %}
-    <p style="text-align:center">No hay películas cargadas todavía.</p>
-{% endfor %}
-</div>
+      </article>
+  {% empty %}
+      <p style="text-align:center">No hay películas cargadas todavía.</p>
+  {% endfor %}
+</main>
+
 </body>
 </html>
