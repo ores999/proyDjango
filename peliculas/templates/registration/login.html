@@ -1,0 +1,14 @@
+{% extends "peliculas/base.html" %}
+{% load static rating_filters rating_extras%}
+{% block contenido %}
+  <h2>Iniciar sesión</h2>
+  <link rel="stylesheet" href="{% static 'pelis/css/cartelera.css' %}">
+  <form method="post" class="form-auth">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="btn">Entrar</button>
+  </form>
+  <p class="hint">¿No tienes cuenta?
+     <a href="{% url 'signup' %}">Regístrate</a></p>
+  <p>Si olvidaste tu contraseña hablale al sensei</p>
+{% endblock %}

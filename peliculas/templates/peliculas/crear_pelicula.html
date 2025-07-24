@@ -1,0 +1,17 @@
+{% extends "peliculas/base.html" %}
+
+{% block titulo %}Nueva película{% endblock %}
+
+{% block contenido %}
+<h2>Agregar película</h2>
+
+<form method="POST" enctype="multipart/form-data" class="form-auth">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button class="btn">Guardar</button>
+</form>
+
+<p style="margin-top:1rem">
+  <a href="{% url 'peliculas:lista_peliculas' %}">← Volver a la lista</a>
+</p>
+{% endblock %}

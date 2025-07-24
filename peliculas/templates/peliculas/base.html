@@ -1,0 +1,30 @@
+{% load static rating_filters rating_extras%}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Pelis Ores{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'pelis/css/cartelera.css' %}">
+</head>
+<body>
+<header class="header">
+  <h1 class="marquee">Pelis Ores</h1>
+
+  <!-- 🔸 Botones de sesión -->
+  <nav class="nav-auth">
+    {% if request.user.is_authenticated %}
+        <a class="btn-auth" href="{% url 'logout' %}">Cerrar sesión</a>
+    {% else %}
+        <a class="btn-auth" href="{% url 'login'  %}">Iniciar sesión</a>
+        <a class="btn-auth" href="{% url 'signup' %}">Registrarse</a>
+    {% endif %}
+  </nav>
+</header>
+
+  <!-- 🔸 el bloque “contenido” que heredarán TODOS los hijos -->
+  {% block contenido %}{% endblock %}
+
+  <footer>…</footer>
+</body>
+</html>
+</html>

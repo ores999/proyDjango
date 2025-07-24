@@ -4,6 +4,7 @@ Generado por 'django-admin startproject' usando Django 3.2.25
 """
 
 from pathlib import Path
+from django.urls import reverse_lazy
 
 # ────────────────────────────
 # Rutas base
@@ -135,3 +136,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # Clave primaria por defecto
 # ────────────────────────────
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+LOGOUT_REDIRECT_URL = reverse_lazy('peliculas:lista_peliculas')
+LOGIN_REDIRECT_URL = reverse_lazy('peliculas:lista_peliculas')

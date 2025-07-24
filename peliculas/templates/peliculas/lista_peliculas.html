@@ -1,3 +1,5 @@
+{% extends "peliculas/base.html" %}
+{% block contenido %}
 {% load static rating_filters rating_extras%}
 <!DOCTYPE html>
 <html lang="es">
@@ -11,15 +13,11 @@
 <body>
 
 <header class="header">
-  <!-- Título / marquesina -->
-  <h1 class="marquee">Pelis Ores</h1>
-
-  <!-- Sprites patrullando -->
-  <div class="sprites">
-    <img src="{% static 'pelis/img/spr_batman.png'   %}" class="sprite batman" alt="">
-    <img src="{% static 'pelis/img/spr_joker.png'    %}" class="sprite joker"  alt="">
-    <img src="{% static 'pelis/img/spr_catwoman.png' %}" class="sprite cat"    alt="">
-  </div>
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'peliculas:crear_pelicula' %}" class="btn-nueva">+ Nueva película</a>
+    {% else %}
+        <small>Inicia sesión para publicar</small>
+    {% endif %}
 </header>
 
 <main class="cartelera">
@@ -27,12 +25,11 @@
       <article class="movie-card">
 
         <!-- póster -->
-        {% if peli.poster %}
-          <img src="{{ peli.poster.url }}" alt="{{ peli.titulo }}">
-        {% else %}
-          <img src="{% static 'pelis/img/poster_placeholder.jpg' %}" alt="Póster genérico">
-        {% endif %}
-
+          {% if peli.poster %}
+              <img src="{{ peli.poster }}" alt="{{ peli.titulo }}">
+          {% else %}
+              <img src="{% static 'pelis/img/poster_placeholder.jpg' %}" alt="Póster genérico">
+          {% endif %}
         <!-- info -->
         <div class="movie-info">
           <h2>{{ peli.titulo }}</h2>
@@ -60,3 +57,4 @@
 
 </body>
 </html>
+{% endblock %}

@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.conf import settings
 
 class Pelicula(models.Model):
     titulo        = models.CharField(max_length=200)
@@ -7,6 +8,13 @@ class Pelicula(models.Model):
     fecha_estreno = models.DateField()
     duracion_min  = models.PositiveIntegerField(help_text="Duración en minutos")
     categoria     = models.CharField(max_length=100)           # Acción, Drama…
+    autor = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="peliculas",
+        editable=False,
+        null=True, blank=True,
+    )
 
     # ─── NUEVOS CAMPOS DE RATING ─────────────────────────────
     rating_imdb   = models.DecimalField(
@@ -25,7 +33,7 @@ class Pelicula(models.Model):
     )
     # ─────────────────────────────────────────────────────────
 
-    poster        = models.ImageField(upload_to="posters/", blank=True, null=True)
+    poster        = models.URLField(blank=True, null=True)
     fecha_creacion = models.DateTimeField(default=timezone.now)
 
     def __str__(self):

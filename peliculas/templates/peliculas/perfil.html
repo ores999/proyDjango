@@ -1,0 +1,14 @@
+{% extends "peliculas/base.html" %}
+{% block contenido %}
+<h2>Mi perfil</h2>
+
+{% if mis_pelis %}
+  <ul>
+    {% for peli in mis_pelis %}
+       <li>{{ peli.titulo }} ({{ peli.fecha_estreno|date:"Y" }})</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No has publicado películas todavía.</p>
+{% endif %}
+{% endblock %}
